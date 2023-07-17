@@ -1,9 +1,11 @@
-import "@/styles/globals.css";
-import type { ReactElement, ReactNode } from "react";
-import { NextPage } from "next";
-import type { AppProps } from "next/app";
+import "@/styles/globals.css"
+import { NextPage } from "next"
+import type { AppProps } from "next/app"
+import type { ReactElement, ReactNode } from "react"
 
-import { SnackbarProvider } from "notistack";
+import store from '@/redux/store'
+import { SnackbarProvider } from "notistack"
+import { Provider } from 'react-redux'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -17,9 +19,11 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
-    <SnackbarProvider maxSnack={3} autoHideDuration={4000}>
-      {getLayout(<Component {...pageProps} />)}
-    </SnackbarProvider>
+    <Provider store={store}>
+      <SnackbarProvider maxSnack={3} autoHideDuration={4000}>
+        {getLayout(<Component {...pageProps} />)}
+      </SnackbarProvider>
+    </Provider>
   );
 };
 

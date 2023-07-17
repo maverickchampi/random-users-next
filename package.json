@@ -17,6 +17,7 @@
     "@mui/icons-material": "5.11.0",
     "@mui/material": "5.11.5",
     "@next/bundle-analyzer": "13.2.4",
+    "@reduxjs/toolkit": "^1.9.5",
     "amazon-cognito-identity-js": "6.1.2",
     "axios": "1.2.3",
     "class-variance-authority": "0.6.0",
@@ -27,6 +28,7 @@
     "react-google-recaptcha": "2.1.0",
     "react-hook-form": "7.42.1",
     "react-idle-timer": "5.5.2",
+    "react-redux": "^8.1.1",
     "swr": "2.0.1",
     "yup": "0.32.11"
   },

@@ -5,12 +5,14 @@ interface IApi {
   baseUrl?: string;
   path?: string;
   params?: Object;
+  body?: Object;
 }
 
 export const API = async({
   method = 'get',
   baseUrl = 'https://randomuser.me/api',
   path = '',
+  body = {},
   params = {},
 }: IApi) => {
 
@@ -20,6 +22,7 @@ export const API = async({
       'Content-Type': 'application/json',
     },
     params,
+    data: body,
   }
 
   const response = await axios[options.method](
